@@ -16,7 +16,8 @@ body {
 
   margin: 0;
   padding: $masthead-height 0 0;
-  padding-bottom: 9em;
+  /* was 9em, reserving room for the fixed footer bar, which is now hidden */
+  padding-bottom: 2em;
   font-family: $global-font-family;
   line-height: 1.5;
 

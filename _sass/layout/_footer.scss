@@ -70,6 +70,16 @@
   font-size: $type-size-7;
 }
 
+/* --------------------------------------------------------------------------
+   Footer content has been removed (see _includes/footer.html), which leaves
+   an empty fixed bar behind. Hide the whole container instead.
+   Delete this block to restore the footer.
+   -------------------------------------------------------------------------- */
+
+.page__footer {
+  display: none;
+}
+
 .page__footer-follow {
   ul {
     margin: 0;
