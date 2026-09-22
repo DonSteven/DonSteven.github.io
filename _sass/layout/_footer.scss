@@ -17,8 +17,12 @@
   /* keep footer in normal document flow so custom widgets do not overlap content */
   height: auto;
 
-  /* keep the footer on the bottom of the page */
-  position: fixed;
+  /* Sit at the bottom of the document instead of overlaying the content, so the
+     footer is appended below the page rather than covering it.
+     `absolute` (not `fixed`) requires the sticky-footer pair:
+       html { position: relative; min-height: 100% }   -> layout/_base.scss
+       body { padding-bottom: 9em }                    -> reserves the space */
+  position: absolute;
   bottom: 0;
 
   -webkit-animation: intro 0.3s both;
@@ -57,27 +61,13 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  /* don't pin the footer on mobile devices */
-  .page__footer {
-    position: relative;
-    bottom: auto;
-  }
-}
+/* The footer is no longer `fixed`, so the previous mobile override (which used to
+   un-pin it below 768px) is not needed: it is appended at the bottom of the
+   document on every screen size. */
 
 .page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
-}
-
-/* --------------------------------------------------------------------------
-   Footer content has been removed (see _includes/footer.html), which leaves
-   an empty fixed bar behind. Hide the whole container instead.
-   Delete this block to restore the footer.
-   -------------------------------------------------------------------------- */
-
-.page__footer {
-  display: none;
 }
 
 .page__footer-follow {
